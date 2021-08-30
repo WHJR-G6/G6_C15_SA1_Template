@@ -1,5 +1,4 @@
-var gap=0
-var num=30
+
 const PLAY = 1;
 const END = 0;
 const START = 2
@@ -197,15 +196,13 @@ function spawnplatforms() {
 function newHurdle(){
   if(frameCount % 100 == 0) {
     xx=Math.round(random(50,450))
-    var plat = createSprite(xx,-10,150,20);
-    plat.velocityY = 4;
-    plat.addImage(platform6);
+    
+    // create platform sprite, add animation, give it random x position.
  
     //assign scale and lifetime to the platform           
     plat.scale = 0.05;
     
-    plat.lifetime = 200;
-    plat.collide(player);
+    
     
     //add each platform to the group
     newPlatformGroup.add(plat);  
