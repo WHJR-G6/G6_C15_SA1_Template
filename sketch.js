@@ -118,6 +118,7 @@ function draw() {
 
     //check collision of new platform with player
     for(var i =0; i<newPlatformGroup.length;i++){
+      
       //use get function to check collision with each object
 
 
@@ -126,8 +127,7 @@ function draw() {
     //game state END
     if(player.y>500){
       gameState = END;
-      //add die sound
-
+ 
     }
     
   }
@@ -153,7 +153,10 @@ function draw() {
 function reset(){
   gameState = START;
   score = 0;
-  // destroy all platforms
+  gameOver.visible = false;
+  restart.visible = false;
+  
+  // destroy all platforms using destroyEach function of group
 
   //reset platform, its x and y position and velocity
 
@@ -194,18 +197,18 @@ function spawnplatforms() {
 }
 
 function newHurdle(){
-  if(frameCount % 100 == 0) {
+  if(frameCount % 200 == 0) {
     xx=Math.round(random(50,450))
     
     // create platform sprite, add animation, give it random x position.
+    
  
     //assign scale and lifetime to the platform           
-    plat.scale = 0.05;
-    
+    platform.scale = 0.05;
     
     
     //add each platform to the group
-    newPlatformGroup.add(plat);  
+    newPlatformGroup.add(platform);  
 }
 
 }
